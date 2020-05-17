@@ -1,0 +1,12 @@
+.demographicStyle{
+    
+    border: 1px solid lightblue;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    text-align: justify;
+}
+.changeBackground{
+    background-color: yellowgreen;
+    color: blue;
+}
