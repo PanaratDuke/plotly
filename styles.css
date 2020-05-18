@@ -10,3 +10,12 @@
     background-color: yellowgreen;
     color: blue;
 }
+
+.demoBoxStyle{
+  font-size: 10px;
+  background-color: lightgrey;
+  width: 200px;
+  border: 3px solid rgb(57, 123, 153);
+  padding: 15px;
+  margin: 10px;
+}
