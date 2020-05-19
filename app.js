@@ -1,5 +1,5 @@
 // Return result from dropDown
-console.log("Refresh 10");
+console.log("Refresh 11");
 
 
 function changedOption(selectOption){
@@ -14,15 +14,14 @@ function changedOption(selectOption){
 function demographicInfo(selectOption){
     // d3.event.preventDefault();
     var addText = d3.select("#demographic");
-    console.log("addText before: ",addText)
-    addText.html=""; 
-    console.log("addText after remove: ",addText)
+    d3.selectAll("p").remove();
     d3.json('Resources/samples.json').then((data)=>{ 
-        
         var demoInfo = data.metadata.filter(row => row.id == selectOption);
         // console.log("Print demographicInfo : demoInfo= ",demoInfo)
+        
         Object.entries(demoInfo[0]).forEach(([key,value])=>{
-            // console.log("Print Object.entries : ",[key,value])       
+            // console.log("Print Object.entries : ",[key,value])  
+                
             addText.append('p').text(`${key} : ${value}`);
         });
     });
