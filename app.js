@@ -1,5 +1,5 @@
 // Return result from dropDown
-console.log("Refresh 11");
+console.log("Refresh 12");
 
 
 function changedOption(selectOption){
@@ -24,6 +24,67 @@ function demographicInfo(selectOption){
                 
             addText.append('p').text(`${key} : ${value}`);
         });
+        
+        var sampleBarChart = data.samples.filter(row => row.id == selectOption);
+        console.log("sampleBarchart = ",sampleBarChart)
+        // var newChartData = {};
+        // Object.entries(sampleBarChart[0]).forEach(row=>
+        // )};
+        var sample_values = sampleBarChart[0].sample_values;
+        var sampleotu_ids = sampleBarChart[0].otu_ids;
+
+        var barChartData = {};
+        barChartData[sampleotu_ids]
+        var sortedValue = sample_values.sort((a,b)=>b-a);
+
+        console.log("sortedValue= ",sortedValue);
+
+        var slicedValue = sortedValue.slice(0,10);
+        var slicedOtu = sampleotu_ids.slice(0,10);
+
+        reversedValue = slicedValue.reverse();
+        console.log("Print Reversed Value = ",reversedValue)
+        reversedOtu = slicedOtu.reverse();
+
+        var test = reversedValue.map(object=>object.sample_values);
+        console.log("test = ",test);
+
+        var trace1 = {
+            x: reversedValue,
+            y: reversedOtu,
+            name: "Bar Chart",
+            type: "bar",
+            orientation: "h"
+        };
+
+        var data = [trace1];
+
+        var layout = {
+            margin:{
+                l:150,
+                // r:300,
+                t:100,
+                b:50
+            }
+        };
+
+        Plotly.newPlot("plot", data, layout)
+    
+        console.log("sample_values = ",sample_values);
+        console.log("sampleotu_ids = ",sampleotu_ids);
+
+        console.log("sliceValue = ",slicedValue);
+        console.log("slicedOtu = ",slicedOtu);
+        
+
+        //Object.entries(sampleBarChart.sample_value)
+        
+        /*
+        var sortedBySampleValue = sampleBarChart.sort((a,b)=> a.sample_values-b.sample_values);
+        console.log("sortedBySampleValue=",sortedBySampleValue)
+        var slickedSampleValues = sampleBarChart.slice(0,10)
+        console.log("Print SlicedSampleValue=",slickedSampleValues);
+        */
     });
 
 }

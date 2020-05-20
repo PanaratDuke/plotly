@@ -13,7 +13,7 @@
 <body>
     <div class = "container">
         <div class="jumbotron text-center">
-            <h1 class="display-5" text-align='center'>Belly Button Biodiversity </h1>
+            <h1 class="display-5" text-align='center'>Belly Button Biodiversity</h1>
             <h1 class="display-5">Dashboard </h1>
             <hr class="my-4">
             <p class="lead">Use the interactive charts below to explore the dataset</p>       
@@ -24,7 +24,7 @@
             <!-- 1st Column -->
             <div class="col-lg-4">
                 <section>
-                    <div class="jumbotron text-left jumbotron_background"> 
+                    <div class="container-fluid"> 
                         <h3 class="display-6">Test Subject:</h3>  
                         <label for="otuId">OTU ID</label>
                           <select id="select-otuId" onChange='changedOption(this.value)'>
@@ -36,7 +36,6 @@
                     <div class="jumbotron text-left demoBoxStyle">              
                         <h6>Demographic Info</h6>
                         <div id="demographic">
-                            <p></p>
                             <!-- d3 will append here -->
                         </div>
                             
@@ -47,8 +46,8 @@
             
             <!-- 2nd Column -->
             <div class="col-lg-4">
-                <div class="jumbotron text-left">          
-                    <h3>Top 10 OTU Graph</h3>         
+                <div id="plot">
+                           
                 </div>
             </div>
             <!-- 3rd Column -->
