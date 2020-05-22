@@ -8,58 +8,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
     <title>Instructor 15.3 Content</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- For bubble chart -->
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class = "container">
-        <div class="jumbotron text-center">
-            <h1 class="display-5" text-align='center'>Belly Button Biodiversity</h1>
-            <h1 class="display-5">Dashboard </h1>
-            <hr class="my-4">
-            <p class="lead">Use the interactive charts below to explore the dataset</p>       
+        <div class="jumbotron text-center backgroundTitle">
+            <h1 class="Headerfont" text-align='center'><b>Belly Button Biodiversity</b></h1>
+            <h1 class="Headerfont"><b>Dashboard</b> </h1>
+            <p class="subHeaderfont"><b>Use the interactive charts below to explore the dataset</b></p>       
         </div>
     </div>
     <div class="container-fluid"></div>
         <section class="row">
             <!-- 1st Column -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 subHeaderfont">
                 <section>
-                    <div class="container-fluid"> 
-                        <h3 class="display-6">Test Subject:</h3>  
+                    <div style="background:transparent" class= "jumbotron text-left demoBoxStyleGreen"> 
+                        <h3 class="subHeaderfont">Test Subject:</h3>  
                         <label for="otuId">OTU ID</label>
                           <select id="select-otuId" onChange='changedOption(this.value)'>
                             <option>-Select ID-</option>
-                          </select>             
-                    </div>
-                    
-                    <!-- 2nd Row -->
-                    <div class="jumbotron text-left demoBoxStyle">              
-                        <h6>Demographic Info</h6>
-                        <div id="demographic">
+                          </select> 
+                        <h6 class="subHeaderfont">Demographic Info</h6>
+                        <div id="demographic" class="subHeaderfont">
                             <!-- d3 will append here -->
-                        </div>
-                            
+                        </div>            
                     </div>
-
                 </section>    
             </div>     
             
             <!-- 2nd Column -->
-            <div class="col-lg-4">
-                <div id="plot">
-                           
-                </div>
+            <div style="background:transparent" class="col-lg-4 container-fluid jumbotron text-left demoBoxStyleOrange">
+                <div id="plot"></div>
             </div>
             <!-- 3rd Column -->
             <div class="col-lg-4">
                 <div class="jumbotron text-left">          
-                    <h3>Top 10 OTU Graph</h3>         
+                    <h3>Gauge</h3>         
                 </div>
             </div>
         </section> 
         <div class="container-fluid">
             <div class="jumbotron text-left">   
                 <p>Bubble Chart </p><br>  
+                <div id="BubblePlot"></div>
             </div>
         </div>
            

@@ -1,44 +1,46 @@
 // Return result from dropDown
-console.log("Refresh 16");
+console.log("Refresh 17");
 
 
-function changedOption(selectOption){
+function changedOption(selectOption) {
     // d3.event.preventDefault();
-    console.log("changedOption : selectOption = ",selectOption);
+    console.log("changedOption : selectOption = ", selectOption);
     var addText = d3.select("#demographic");
-    console.log("addText before: ",addText)
-    addText.html=""; 
+    console.log("addText before: ", addText)
+    addText.html = "";
     demographicInfo(selectOption);
 };
 
-function demographicInfo(selectOption){
+function demographicInfo(selectOption) {
     // d3.event.preventDefault();
     var addText = d3.select("#demographic");
     d3.selectAll("p").remove();
-    d3.json('Resources/samples.json').then((data)=>{ 
+    d3.json('Resources/samples.json').then((data) => {
         var demoInfo = data.metadata.filter(row => row.id == selectOption);
         // console.log("Print demographicInfo : demoInfo= ",demoInfo)
-        
-        Object.entries(demoInfo[0]).forEach(([key,value])=>{
+
+        Object.entries(demoInfo[0]).forEach(([key, value]) => {
             // console.log("Print Object.entries : ",[key,value])  
-                
+
             addText.append('p').text(`${key} : ${value}`);
         });
-        
+
         var sampleBarChart = data.samples.filter(row => row.id == selectOption);
-        console.log("sampleBarchart = ",sampleBarChart)
-        
+        console.log("sampleBarchart = ", sampleBarChart)
+
         var sample_values = sampleBarChart[0].sample_values;
-        var sampleotu_ids = sampleBarChart[0].otu_ids.map(id=>`Otu Id ${id.toString()}`);
+        var sampleotu_ids = sampleBarChart[0].otu_ids.map(id => `Otu Id ${id.toString()}`);
+        var otu_ids = sampleBarChart[0].otu_ids
 
-        console.log("Print sampleotu_ids ",sampleotu_ids);
+        console.log("Print sampleotu_ids ", sampleotu_ids);
 
-        var slicedValue = sample_values.slice(0,10);
-        console.log("Print slicedValue=",slicedValue);
-        var slicedOtu = sampleotu_ids.slice(0,10);
-       
+        var slicedValue = sample_values.slice(0, 10);
+        console.log("Print slicedValue=", slicedValue);
+        var slicedOtu = sampleotu_ids.slice(0, 10);
+
         slicedValue.reverse();
 
+        // Bar Chart
         var trace1 = {
             x: slicedValue,
             y: slicedOtu,
@@ -46,48 +48,57 @@ function demographicInfo(selectOption){
             type: "bar",
             orientation: "h"
         };
+    
+        // Bubble Chart
+        var margin = { top: 10, right: 20, bottom: 30, left: 50 },
+            width = 500 - margin.left - margin.right,
+            height = 420 - margin.top - margin.bottom;
 
         var data = [trace1];
-
-        var layout = {
-        
+        var bar_layout = {
+            title: 'Top 10 Bacteria Cultures Found', 
+            margin: margin
         };
 
-        Plotly.newPlot("plot", data, layout)
-    
-        // console.log("sample_values = ",sample_values);
-        // console.log("sampleotu_ids = ",sampleotu_ids);
-
-        // console.log("sliceValue = ",slicedValue);
-        // console.log("slicedOtu = ",slicedOtu);
-        
-
-        //Object.entries(sampleBarChart.sample_value)
-        
-        /*
-        var sortedBySampleValue = sampleBarChart.sort((a,b)=> a.sample_values-b.sample_values);
-        console.log("sortedBySampleValue=",sortedBySampleValue)
-        var slickedSampleValues = sampleBarChart.slice(0,10)
-        console.log("Print SlicedSampleValue=",slickedSampleValues);
-        */
+        var trace2 = {
+            x: otu_ids,
+            y: sample_values, 
+            mode: 'markers', 
+            marker: {
+                size: sample_values.map(point=>point/3), 
+                color: otu_ids, 
+                colorscale: 'Earth'
+            }
+        };
+        var data2=[trace2];
+        var bubble_layout={
+            title: 'Bacteria Cultures per Sample', 
+            margin: {t:0}, 
+            hovermode: 'closest', 
+            xaxis: {
+                title: 'OTU ID'
+            }
+        }
+        Plotly.newPlot("plot", data, bar_layout);
+        Plotly.newPlot("BubblePlot", data2, bubble_layout);
     });
 
 }
-    
-function init(){
+
+function init() {
     //Import file from json
     d3.json('Resources/samples.json').then((data)=>{
-    
-        var sampleNames=data.names;
-       
-        var dropDown=d3.select('#select-otuId');
-        sampleNames.forEach((sample)=>{
+
+        var sampleNames = data.names;
+
+        var dropDown = d3.select('#select-otuId');
+        sampleNames.forEach((sample) => {
             dropDown.append('option')
-                    .text(sample)
-                    .property('this.value', sample);
+                .text(sample)
+                .property('this.value', sample);
         });
-        
+
     });
-    demographicInfo(941);
+    demographicInfo(940);
 }
 init();
