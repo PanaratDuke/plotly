@@ -21,21 +21,33 @@ function demographicInfo(selectOption) {
 
         Object.entries(demoInfo[0]).forEach(([key, value]) => {
             // console.log("Print Object.entries : ",[key,value])  
-
             addText.append('p').text(`${key} : ${value}`);
         });
 
-        var sampleBarChart = data.samples.filter(row => row.id == selectOption);
-        console.log("sampleBarchart = ", sampleBarChart)
+        // for guage chart
+        // var wfreq = [];
+        // Object.values(demoInfo[0]).forEach(v=>{
+        //     console.log("print v=",v);
+        //     wfreq = demoInfo[0].wfreq.push(v)});
+        //     console.log('wfreq= ',wfreq)
 
+
+        var sampleBarChart = data.samples.filter(row => row.id == selectOption);
+        // console.log("sampleBarchart = ", sampleBarChart)
+
+        // for bar chart
         var sample_values = sampleBarChart[0].sample_values;
         var sampleotu_ids = sampleBarChart[0].otu_ids.map(id => `Otu Id ${id.toString()}`);
+
+        // for bubble chart
         var otu_ids = sampleBarChart[0].otu_ids
 
-        console.log("Print sampleotu_ids ", sampleotu_ids);
+        
+
+        // console.log("Print sampleotu_ids ", sampleotu_ids);
 
         var slicedValue = sample_values.slice(0, 10);
-        console.log("Print slicedValue=", slicedValue);
+        // console.log("Print slicedValue=", slicedValue);
         var slicedOtu = sampleotu_ids.slice(0, 10);
 
         slicedValue.reverse();
@@ -44,6 +56,9 @@ function demographicInfo(selectOption) {
         var trace1 = {
             x: slicedValue,
             y: slicedOtu,
+            marker:{
+                color: ['rgb(209, 3, 250)', 'purple', ' rgb(70, 156, 255)','blue','rgb(56, 182, 6)','green', 'yellow','orange','red','rgb(150, 21, 3)']
+              },
             name: "Bar Chart",
             type: "bar",
             orientation: "h"

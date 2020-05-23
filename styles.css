@@ -29,10 +29,10 @@
 }
 
 .Headerfont{
-  font-size: 50px;
+  font-size: 40px;
 }
 .subHeaderfont{
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .backgroundTitle {
@@ -41,6 +41,6 @@
   background-position: 0% 10%;
   background-size: cover;
   background-repeat: no-repeat;
-  color: black;
+  color: rgb(21, 21, 63);
   /* text-shadow: black 0.1em 0.1em 0.1em; */
 }
