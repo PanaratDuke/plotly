@@ -17,5 +17,7 @@ __Study Javascript and Plotly__
 ![Image of Website](Resources/websiteImage.png)
 
 ## Sources :-
-- background image from [vectorstock](https://www.vectorstock.com/).
-- Study context from [w3schools](https://www.w3schools.com).
+- Background image from [vectorstock](https://www.vectorstock.com/).
+- Study context from 
+ - [w3schools](https://www.w3schools.com).
+ - [mozilla.org](https://developer.mozilla.org/).
