@@ -12,6 +12,14 @@ __Study Javascript and Plotly__
  
 - **Use Plotly** to create bar chart and bubble charts
 
+# Project Name
+
+**Belly Button Biodiversity**
+
+# Challenges
+- Extracted data from JSON file : nested objects has to be referred correctly.
+- Upload index.html by using init() fuction to shows the default value before user select from drop down list.
+
 # Website 
 
 ![Image of Website](Resources/websiteImage.png)
