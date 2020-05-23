@@ -1,6 +1,7 @@
-# plotly
+# Plotly
 
-__Study Plotly__
+__Study Javascript and Plotly__
+
 - **Use Javascript**
  - *map()* method creates a new array with the results of calling a function for every array element.
  - *forEach()* method calls a function once for each element in an array, in order.
@@ -8,9 +9,11 @@ __Study Plotly__
  - *Object.entries()* method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
  - *slice()* method returns the specific selected elements in an array, as a new array object. This method selected the elements starting at the given start argument, and ends at, *but does not include*, the given end argument.
  - *toString()* method converts number to string and adds prefix infront of number.
+ 
 - **Use Plotly** to create bar chart and bubble charts
 
-__Website__
+# Website 
+
 ![Image of Website](Resources/websiteImage.png)
 
 Sources for background image from [](https://www.vectorstock.com/).
