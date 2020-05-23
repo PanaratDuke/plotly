@@ -19,5 +19,5 @@ __Study Javascript and Plotly__
 ## Sources :-
 - Background image from [vectorstock](https://www.vectorstock.com/).
 - Study context from 
- - [w3schools](https://www.w3schools.com).
- - [mozilla.org](https://developer.mozilla.org/).
+  - [w3schools](https://www.w3schools.com).
+  - [mozilla.org](https://developer.mozilla.org/).
